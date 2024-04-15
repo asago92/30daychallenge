@@ -3,7 +3,7 @@ import altair as alt
 import pandas as pd
 import openpyxl
 
-source = pd.read_excel('https://query.data.world/s/tjec4jpzz3kkdw46rdqjggump76iog?dws=00000')
+source = pd.read_excel('MusicData.xlsx')
 
 chart = alt.Chart(source).mark_area().encode(
     alt.X('Year:T',
