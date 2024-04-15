@@ -17,5 +17,5 @@ chart = alt.Chart(source).mark_area().encode(
 ).interactive()
 
 st.title("Visualizing 40 Years of Music Industry Sales")
-st.write("Source: 
+
 st.altair_chart(chart, theme=None, use_container_width=True)
