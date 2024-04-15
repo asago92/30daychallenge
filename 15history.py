@@ -8,8 +8,8 @@ chart = alt.Chart(source).mark_area().encode(
     alt.X('Year',
         axis=alt.Axis(format='%Y', domain=False, tickSize=0)
     ),
-    alt.Y('sum(Value (Actual)', stack='center', axis=None),
-    alt.Color('Format,
+    alt.Y('sum(Value (Actual))', stack='center', axis=None),
+    alt.Color('Format',
         scale=alt.Scale(scheme='category20b')
     )
 ).interactive()
