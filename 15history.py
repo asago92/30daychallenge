@@ -6,11 +6,11 @@ import openpyxl
 source = pd.read_excel('https://query.data.world/s/tjec4jpzz3kkdw46rdqjggump76iog?dws=00000')
 
 chart = alt.Chart(source).mark_area().encode(
-    alt.X('Year',
+    alt.X('Year:T',
         axis=alt.Axis(format='%Y', domain=False, tickSize=0)
     ),
-    alt.Y('sum(Value (Actual))', stack='center', axis=None),
-    alt.Color('Format',
+    alt.Y('sum(Value (Actual):Q)', stack='center', axis=None),
+    alt.Color('Format:N',
         scale=alt.Scale(scheme='category20b')
     )
 ).interactive()
