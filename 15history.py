@@ -9,7 +9,7 @@ chart = alt.Chart(source).mark_area().encode(
     alt.X('Year:T',
         axis=alt.Axis(format='%Y', domain=False, tickSize=0)
     ),
-    alt.Y('sum(Value (Actual):Q)', stack='center', axis=None),
+    alt.Y('Value (Actual):Q', aggregate='sum', stack='center', axis=None),
     alt.Color('Format:N',
         scale=alt.Scale(scheme='category20b')
     )
