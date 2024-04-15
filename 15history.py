@@ -3,6 +3,12 @@ import altair as alt
 import pandas as pd
 import openpyxl
 
+st.set_page_config(
+    page_title="vizchallenge",
+    page_icon="📊",
+    layout="wide"
+)
+
 source = pd.read_excel('MusicData.xlsx')
 source['Year'] = pd.to_datetime(source['Year'], format='%Y')
 
