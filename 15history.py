@@ -18,4 +18,4 @@ chart = alt.Chart(source).mark_area().encode(
 
 st.title("Visualizing 40 Years of Music Industry Sales")
 
-st.altair_chart(chart, theme=None, use_container_width=True)
+st.altair_chart(chart, theme="streamlit", use_container_width=True)
