@@ -18,7 +18,7 @@ chart = alt.Chart(source).mark_area().encode(
     ),
     alt.Y('Value (Actual):Q', aggregate='sum', stack='center', axis=None),
     alt.Color('Format:N',
-        scale=alt.Scale(scheme='category20b')
+        scale=alt.Scale(scheme='category20c')
     )
 ).interactive()
 
