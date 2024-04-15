@@ -4,6 +4,7 @@ import pandas as pd
 import openpyxl
 
 source = pd.read_excel('MusicData.xlsx')
+source['Year'] = pd.to_datetime(source['Year'], format='%Y')
 
 chart = alt.Chart(source).mark_area().encode(
     alt.X('Year:T',
@@ -16,4 +17,5 @@ chart = alt.Chart(source).mark_area().encode(
 ).interactive()
 
 st.title("Visualizing 40 Years of Music Industry Sales")
+st.write("Source: 
 st.altair_chart(chart, theme=None, use_container_width=True)
