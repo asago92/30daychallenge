@@ -32,3 +32,4 @@ with tab3:
     st.write("The data reflects the evolution in music consumption, shifting from physical media like CDs and cassettes to digital downloads and streaming services. This transition highlights the music industry's adaptation to technological advancements and changing consumer preferences.")
     
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
+    st.markdown("---")
