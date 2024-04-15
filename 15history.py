@@ -8,6 +8,9 @@ st.set_page_config(
     page_icon="📊",
     layout="wide"
 )
+st.title("#30DayChartChallenge April 2024")
+st.write("30 Days - 30 Charts - 5 Categories")
+
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["Comparisons", "Distributions", "Relationships", "Timeseries", "Uncertainties"])
 
 with tab3:
