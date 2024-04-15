@@ -16,7 +16,7 @@ st.header("30 Days | 30 Charts | 5 Categories")
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["Comparisons", "Distributions", "Relationships", "Timeseries", "Uncertainties"])
 
 with tab1:
-    df = px.data.gapminder().query("year == 2022")
+    df = px.data.gapminder().query("year == 2007")
     fig = px.icicle(df, path=[px.Constant("world"), 'continent', 'country'], values='pop',
                       color='lifeExp', hover_data=['iso_alpha'],
                       color_continuous_scale='RdBu',
