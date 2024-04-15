@@ -2,6 +2,8 @@ import streamlit as st
 import altair as alt
 import pandas as pd
 import openpyxl
+import plotly.express as px
+import numpy as np
 
 st.set_page_config(
     page_title="vizchallenge",
@@ -12,6 +14,18 @@ st.title("#30DayChartChallenge April 2024")
 st.header("30 Days | 30 Charts | 5 Categories")
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["Comparisons", "Distributions", "Relationships", "Timeseries", "Uncertainties"])
+
+with tab1:
+    df = px.data.gapminder().query("year == 2022")
+    fig = px.icicle(df, path=[px.Constant("world"), 'continent', 'country'], values='pop',
+                      color='lifeExp', hover_data=['iso_alpha'],
+                      color_continuous_scale='RdBu',
+                      color_continuous_midpoint=np.average(df['lifeExp'], weights=df['pop']))
+    fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
+    st.plotly_chart(fig, theme=None)
+    st.header("Day 1: Part-to-Whole")
+    st.subheader("Life Expectancy")
+    st.write("Something about this chart")
 
 with tab3:
     source = pd.read_excel('MusicData.xlsx')
