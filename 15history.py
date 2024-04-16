@@ -52,9 +52,9 @@ with tab3:
 
     #day16:weather 
     #ridgelineplot
-    st.header("Day 16: Weather")
+    st.header("Observing Mars Weather")
     st.subheader("Observing Mars Weather")
-    st.write("The data reflects the evolution in music consumption, shifting from physical media like CDs and cassettes to digital downloads and streaming services. This transition highlights the music industry's adaptation to technological advancements and changing consumer preferences.")
+    st.write("The chart shows the average maximum temperature for each month on Mars. ")
     df = pd.read_excel('mars-weather.xlsx')
     df['terrestrial_date'] = pd.to_datetime(df['terrestrial_date'])
     df_sorted = df.sort_values(by='terrestrial_date')
@@ -97,7 +97,7 @@ with tab3:
             header=alt.Header(labelAngle=0, labelAlign='right', format='%B')
         )
     ).properties(
-        title='Mars Weather',
+        title='2012 - 2018',
         bounds='flush'
     ).configure_facet(
         spacing=0
