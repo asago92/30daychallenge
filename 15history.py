@@ -123,7 +123,7 @@ with tab3:
     # Define the height of the chart
     step = 20
     
-    # Create the area chart
+    # Corrected area chart
     chart = alt.Chart(monthly_avg_max_temp, height=step).mark_area(
         interpolate='monotone',
         fillOpacity=0.8,
@@ -131,8 +131,10 @@ with tab3:
         strokeWidth=0.5
     ).encode(
         alt.X('Month:N', axis=alt.Axis(title='Month')),
-        alt.Y('mean_max_temp:Q', axis=alt.Axis(title='Average Maximum Daily Temperature (C)', scale=alt.Scale(domain=[0, -15])))
+        alt.Y('mean_max_temp:Q', 
+              axis=alt.Axis(title='Average Maximum Daily Temperature (C)'), 
+              scale=alt.Scale(domain=[-15, 0])  # Corrected scale placement
+        )
     ).properties(
         title='Mars Weather Average Max Temperature by Month'
     )
-
