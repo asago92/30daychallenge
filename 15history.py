@@ -79,7 +79,7 @@ with tab3:
         strokeWidth=0.5
     ).encode(
         alt.X('bin_min:Q', bin='binned', title='Maximum Daily Temperature (C)',
-          scale=alt.Scale(domain=[-20, 0])),  
+          scale=alt.Scale(domain=[-30, 0])),  
         alt.Y(
             'value:Q',
             scale=alt.Scale(range=[step, -step * overlap]),
@@ -108,34 +108,4 @@ with tab3:
     )
    
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
-    # Add a 'Month' column that represents the month as a string
-    df['Month'] = df['terrestrial_date'].dt.strftime('%B')
     
-    # Group by 'Month' and calculate the average 'max_temp' for each month
-    monthly_avg_max_temp = df.groupby('Month', as_index=False).agg(mean_max_temp=('max_temp', 'mean'))
-    
-    # Sort by month to maintain chronological order
-    month_order = ['January', 'February', 'March', 'April', 'May', 'June',
-                   'July', 'August', 'September', 'October', 'November', 'December']
-    monthly_avg_max_temp['Month'] = pd.Categorical(monthly_avg_max_temp['Month'], categories=month_order, ordered=True)
-    monthly_avg_max_temp = monthly_avg_max_temp.sort_values('Month')
-    
-    # Define the height of the chart
-    step = 20
-    
-    # Corrected area chart
-    chart1 = alt.Chart(monthly_avg_max_temp, height=step).mark_area(
-        interpolate='monotone',
-        fillOpacity=0.8,
-        stroke='lightgray',
-        strokeWidth=0.5
-    ).encode(
-        alt.X('Month:N', axis=alt.Axis(title='Month')),
-        alt.Y('mean_max_temp:Q', 
-              axis=alt.Axis(title='Average Maximum Daily Temperature (C)'), 
-              scale=alt.Scale(domain=[-15, 0])  # Corrected scale placement
-        )
-    ).properties(
-        title='Mars Weather Average Max Temperature by Month'
-    )
-    st.altair_chart(chart1, theme="streamlit", use_container_width=True)
