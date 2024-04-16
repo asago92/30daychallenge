@@ -83,7 +83,7 @@ with tab3:
         alt.Fill(
             'mean_temp:Q',
             legend=None,
-            scale=alt.Scale(domain=[30, 5], scheme='lighttealblue')
+            scale=alt.Scale(domain=[30, 5], scheme='redyellowblue')
         )
     ).facet(
         row=alt.Row(
@@ -92,7 +92,7 @@ with tab3:
             header=alt.Header(labelAngle=0, labelAlign='right', format='%B')
         )
     ).properties(
-        title='Seattle Weather',
+        title='Mars Weather',
         bounds='flush'
     ).configure_facet(
         spacing=0
