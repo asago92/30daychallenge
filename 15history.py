@@ -54,18 +54,19 @@ with tab3:
     #divergingstackedbarchart, weatherheatmap, hexbins, ridgelineplot
     df = pd.read_csv('https://query.data.world/s/ke5v2uhxu6z7jjzmjfe4jrmrmhuy6e?dws=00000')
     df['terrestrial_date'] = pd.to_datetime(df['terrestrial_date'])
+    df['Year'] = df['terrestrial_date'].dt.year
     df['Month'] = df['terrestrial_date'].dt.month_name()
     step = 20
     overlap = 1
 
     chart = alt.Chart(df, height=step).transform_joinaggregate(
-    mean_temp='mean(min_temp)', groupby=['terrestrial_date']
+    mean_temp='mean(min_temp)', groupby=['Year']
     ).transform_bin(
         ['bin_max', 'bin_min'], 'min_temp'
     ).transform_aggregate(
-        value='count()', groupby=['terrestrial_date', 'mean_temp', 'bin_min', 'bin_max']
+        value='count()', groupby=['Year', 'mean_temp', 'bin_min', 'bin_max']
     ).transform_impute(
-        impute='value', groupby=['terrestrial_date', 'mean_temp'], key='bin_min', value=0
+        impute='value', groupby=['Year', 'mean_temp'], key='bin_min', value=0
     ).mark_area(
         interpolate='monotone',
         fillOpacity=0.8,
@@ -85,7 +86,7 @@ with tab3:
         )
     ).facet(
         row=alt.Row(
-            'terrestrial_date:T',
+            'Year:T',
             title=None,
             header=alt.Header(labelAngle=0, labelAlign='right', format='%B')
         )
