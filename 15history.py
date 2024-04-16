@@ -88,7 +88,7 @@ with tab3:
         alt.Fill(
             'mean_temp:Q',
             legend=None,
-            scale=alt.Scale(domain=[-15, 0], scheme='redyellowblue')
+            scale=alt.Scale(domain=[-15, 0], scheme='lighttealblue')
         )
     ).facet(
         row=alt.Row(
