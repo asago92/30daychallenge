@@ -101,5 +101,10 @@ with tab3:
     ).configure_title(
         anchor='end'
     )
-       
+    chart.configure_view(
+        strokeWidth=2,  # Makes the border of the chart area more prominent
+        width=600,      # Adjust width directly here
+        height=300      # Adjust height directly here
+    )
+   
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
