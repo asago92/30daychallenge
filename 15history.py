@@ -79,7 +79,7 @@ with tab3:
         strokeWidth=0.5
     ).encode(
         alt.X('bin_min:Q', bin='binned', title='Maximum Daily Temperature (C)',
-          scale=alt.Scale(domain=[-15, 0])),  
+          scale=alt.Scale(domain=[-20, 0])),  
         alt.Y(
             'value:Q',
             scale=alt.Scale(range=[step, -step * overlap]),
