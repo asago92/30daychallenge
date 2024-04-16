@@ -86,7 +86,7 @@ with tab3:
         )
     ).facet(
         row=alt.Row(
-            'Year:T',
+            'Year:O',
             title=None,
             header=alt.Header(labelAngle=0, labelAlign='right', format='%B')
         )
