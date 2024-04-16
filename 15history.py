@@ -58,7 +58,7 @@ with tab3:
     overlap = 1
 
     chart = alt.Chart(df, height=step).transform_timeunit(
-        Month='monthname'
+        Month='terrestrial_date'
     ).transform_joinaggregate(
         mean_temp='mean(min_temp)', groupby=['Month']
     ).transform_bin(
