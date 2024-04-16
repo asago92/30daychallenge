@@ -57,16 +57,14 @@ with tab3:
     step = 20
     overlap = 1
 
-    chart = alt.Chart(df, height=step).transform_timeunit(
-        Month='monthname'
-    ).transform_joinaggregate(
-        mean_temp='mean(min_temp)', groupby=['Month']
+    chart = alt.Chart(df, height=step).transform_joinaggregate(
+        mean_temp='mean(min_temp)', groupby=['monthname']
     ).transform_bin(
         ['bin_max', 'bin_min'], 'min_temp'
     ).transform_aggregate(
-        value='count()', groupby=['Month', 'mean_temp', 'bin_min', 'bin_max']
+        value='count()', groupby=['monthname', 'mean_temp', 'bin_min', 'bin_max']
     ).transform_impute(
-        impute='value', groupby=['Month', 'mean_temp'], key='bin_min', value=0
+        impute='value', groupby=['monthname', 'mean_temp'], key='bin_min', value=0
     ).mark_area(
         interpolate='monotone',
         fillOpacity=0.8,
@@ -86,7 +84,7 @@ with tab3:
         )
     ).facet(
         row=alt.Row(
-            'Month:T',
+            'monthname:T',
             title=None,
             header=alt.Header(labelAngle=0, labelAlign='right', format='%B')
         )
