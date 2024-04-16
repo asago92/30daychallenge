@@ -52,29 +52,28 @@ with tab3:
 
     #day16:weather 
     #divergingstackedbarchart, weatherheatmap, hexbins, ridgelineplot
-    df = pd.read_csv('https://query.data.world/s/ke5v2uhxu6z7jjzmjfe4jrmrmhuy6e?dws=00000')
-    df['terrestrial_date'] = pd.to_datetime(df['terrestrial_date'])
-    df['Year'] = df['terrestrial_date'].dt.year
-    
+    source = data.seattle_weather.url
+
     step = 20
     overlap = 1
-    
-    # Create the chart
-    chart = alt.Chart(df, height=step).transform_joinaggregate(
-        mean_temp='mean(min_temp)', groupby=['month']
+
+    chart = alt.Chart(source, height=step).transform_timeunit(
+        Month='month(date)'
+    ).transform_joinaggregate(
+        mean_temp='mean(temp_max)', groupby=['Month']
     ).transform_bin(
-        ['bin_max', 'bin_min'], 'min_temp'
+        ['bin_max', 'bin_min'], 'temp_max'
     ).transform_aggregate(
-        value='count()', groupby=['month', 'mean_temp', 'bin_min', 'bin_max']
+        value='count()', groupby=['Month', 'mean_temp', 'bin_min', 'bin_max']
     ).transform_impute(
-        impute='value', groupby=['month', 'mean_temp'], key='bin_min', value=0
+        impute='value', groupby=['Month', 'mean_temp'], key='bin_min', value=0
     ).mark_area(
         interpolate='monotone',
         fillOpacity=0.8,
         stroke='lightgray',
         strokeWidth=0.5
     ).encode(
-        alt.X('bin_min:Q', bin='binned', title='Minimum Daily Temperature (C)'),
+        alt.X('bin_min:Q', bin='binned', title='Maximum Daily Temperature (C)'),
         alt.Y(
             'value:Q',
             scale=alt.Scale(range=[step, -step * overlap]),
@@ -87,12 +86,12 @@ with tab3:
         )
     ).facet(
         row=alt.Row(
-            'month:Q',  
+            'Month:T',
             title=None,
-            header=alt.Header(labelAngle=0, labelAlign='right', format='%Y')
+            header=alt.Header(labelAngle=0, labelAlign='right', format='%B')
         )
     ).properties(
-        title='Mars Weather',
+        title='Seattle Weather',
         bounds='flush'
     ).configure_facet(
         spacing=0
@@ -101,6 +100,5 @@ with tab3:
     ).configure_title(
         anchor='end'
     )
-
-    st.altair_chart(chart, theme="streamlit", use_container_width=True)
-
+       
+    st.altair_chart(chart, theme=None, use_container_width=True)
