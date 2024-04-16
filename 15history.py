@@ -124,7 +124,7 @@ with tab3:
     step = 20
     
     # Corrected area chart
-    chart = alt.Chart(monthly_avg_max_temp, height=step).mark_area(
+    chart1 = alt.Chart(monthly_avg_max_temp, height=step).mark_area(
         interpolate='monotone',
         fillOpacity=0.8,
         stroke='lightgray',
@@ -138,3 +138,4 @@ with tab3:
     ).properties(
         title='Mars Weather Average Max Temperature by Month'
     )
+    st.altair_chart(chart1, theme="streamlit", use_container_width=True)
