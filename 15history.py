@@ -102,4 +102,4 @@ with tab3:
         anchor='end'
     )
        
-    st.altair_chart(chart, theme="streamlit", use_container_width=True)
+    st.altair_chart(chart, theme="streamlit", use_container_width=False)
