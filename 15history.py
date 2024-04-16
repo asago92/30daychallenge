@@ -53,8 +53,8 @@ with tab3:
     #day16:weather 
     #ridgelineplot
     st.header("Observing Mars Weather")
-    st.subheader("Observing Mars Weather")
-    st.write("The chart shows the average maximum temperature for each month on Mars. ")
+    #st.subheader("Observing Mars Weather")
+    st.write("The chart shows the average maximum temperature for each month on Mars in an attempt to identify the Martian solstice and equinox cycles.")
     df = pd.read_excel('mars-weather.xlsx')
     df['terrestrial_date'] = pd.to_datetime(df['terrestrial_date'])
     df_sorted = df.sort_values(by='terrestrial_date')
