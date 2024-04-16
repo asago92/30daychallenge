@@ -54,7 +54,6 @@ with tab3:
     #divergingstackedbarchart, weatherheatmap, hexbins, ridgelineplot
     df = pd.read_excel('mars-weather.xlsx')
     df['terrestrial_date'] = pd.to_datetime(df['terrestrial_date'])
-    df['Month'] = df['terrestrial_date'].dt.month_name()
 
     step = 20
     overlap = 1
