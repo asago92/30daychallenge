@@ -53,6 +53,7 @@ with tab3:
     #day16:weather 
     #divergingstackedbarchart, weatherheatmap, hexbins, ridgelineplot
     df = pd.read_csv('https://query.data.world/s/ke5v2uhxu6z7jjzmjfe4jrmrmhuy6e?dws=00000')
+    df['terrestrial_date'] = pd.to_datetime(df['terrestrial_date'])
     df['monthname'] = pd.to_datetime(df['terrestrial_date']).dt.month_name()
     step = 20
     overlap = 1
