@@ -52,17 +52,17 @@ with tab3:
 
     #day16:weather 
     #divergingstackedbarchart, weatherheatmap, hexbins, ridgelineplot
-    source = data.seattle_weather.url
+    df = pd.read_excel('mars-weather.xlsx')
 
     step = 20
     overlap = 1
 
-    chart = alt.Chart(source, height=step).transform_timeunit(
-        Month='month(date)'
+    chart = alt.Chart(df, height=step).transform_timeunit(
+        Month='monthname'
     ).transform_joinaggregate(
-        mean_temp='mean(temp_max)', groupby=['Month']
+        mean_temp='mean(min_temp)', groupby=['Month']
     ).transform_bin(
-        ['bin_max', 'bin_min'], 'temp_max'
+        ['bin_max', 'bin_min'], 'min_temp'
     ).transform_aggregate(
         value='count()', groupby=['Month', 'mean_temp', 'bin_min', 'bin_max']
     ).transform_impute(
