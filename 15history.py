@@ -57,11 +57,12 @@ with tab3:
     st.write("The data reflects the evolution in music consumption, shifting from physical media like CDs and cassettes to digital downloads and streaming services. This transition highlights the music industry's adaptation to technological advancements and changing consumer preferences.")
     df = pd.read_excel('mars-weather.xlsx')
     df['terrestrial_date'] = pd.to_datetime(df['terrestrial_date'])
+    df_sorted = df.sort_values(by='terrestrial_date')
 
     step = 20
     overlap = 1
 
-    chart = alt.Chart(df, height=step).transform_timeunit(
+    chart = alt.Chart(df_sorted, height=step).transform_timeunit(
         Month='month(terrestrial_date)'
     ).transform_joinaggregate(
         mean_temp='mean(max_temp)', groupby=['Month']
