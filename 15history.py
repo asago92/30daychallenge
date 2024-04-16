@@ -59,8 +59,10 @@ with tab3:
     step = 20
     overlap = 1
 
-    chart = alt.Chart(df, height=step).transform_joinaggregate(
-        mean_temp='mean(min_temp)', groupby=['Month']
+    chart = alt.Chart(df, height=step).transform_timeunit(
+        Month='month(terrestrial_date)'
+    ).transform_joinaggregate(
+        mean_temp='mean(temp_max)', groupby=['Month']
     ).transform_bin(
         ['bin_max', 'bin_min'], 'min_temp'
     ).transform_aggregate(
