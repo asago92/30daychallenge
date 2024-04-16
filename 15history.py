@@ -61,13 +61,13 @@ with tab3:
     
     # Create the chart
     chart = alt.Chart(df, height=step).transform_joinaggregate(
-        mean_temp='mean(min_temp)', groupby=['Year']
+        mean_temp='mean(min_temp)', groupby=['month']
     ).transform_bin(
         ['bin_max', 'bin_min'], 'min_temp'
     ).transform_aggregate(
-        value='count()', groupby=['Year', 'mean_temp', 'bin_min', 'bin_max']
+        value='count()', groupby=['month', 'mean_temp', 'bin_min', 'bin_max']
     ).transform_impute(
-        impute='value', groupby=['Year', 'mean_temp'], key='bin_min', value=0
+        impute='value', groupby=['month', 'mean_temp'], key='bin_min', value=0
     ).mark_area(
         interpolate='monotone',
         fillOpacity=0.8,
@@ -87,7 +87,7 @@ with tab3:
         )
     ).facet(
         row=alt.Row(
-            'Year:T',  
+            'month:T',  
             title=None,
             header=alt.Header(labelAngle=0, labelAlign='right', format='%Y')
         )
@@ -101,7 +101,6 @@ with tab3:
     ).configure_title(
         anchor='end'
     )
-    
-    # Assuming this is a Streamlit script
+
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
 
