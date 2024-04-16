@@ -51,7 +51,10 @@ with tab3:
     st.markdown("---")
 
     #day16:weather 
-    #divergingstackedbarchart, weatherheatmap, hexbins, ridgelineplot
+    #ridgelineplot
+    st.header("Day 16: Weather")
+    st.subheader("Observing Mars Weather")
+    st.write("The data reflects the evolution in music consumption, shifting from physical media like CDs and cassettes to digital downloads and streaming services. This transition highlights the music industry's adaptation to technological advancements and changing consumer preferences.")
     df = pd.read_excel('mars-weather.xlsx')
     df['terrestrial_date'] = pd.to_datetime(df['terrestrial_date'])
 
@@ -100,11 +103,6 @@ with tab3:
         stroke=None
     ).configure_title(
         anchor='end'
-    )
-    chart.configure_view(
-        strokeWidth=2,  # Makes the border of the chart area more prominent
-        width=600,      # Adjust width directly here
-        height=300      # Adjust height directly here
     )
    
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
