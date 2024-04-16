@@ -101,6 +101,5 @@ with tab3:
     ).configure_title(
         anchor='end'
     )
-    chart = alt.Chart(df, width=600, height=300) 
        
-    st.altair_chart(chart, theme="streamlit", use_container_width=False)
+    st.altair_chart(chart, theme="streamlit", use_container_width=True)
