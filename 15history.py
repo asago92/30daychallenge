@@ -58,9 +58,10 @@ with tab3:
     
     step = 20
     overlap = 1
-
+    
+    # Create the chart
     chart = alt.Chart(df, height=step).transform_joinaggregate(
-    mean_temp='mean(min_temp)', groupby=['Year']
+        mean_temp='mean(min_temp)', groupby=['Year']
     ).transform_bin(
         ['bin_max', 'bin_min'], 'min_temp'
     ).transform_aggregate(
@@ -86,9 +87,9 @@ with tab3:
         )
     ).facet(
         row=alt.Row(
-            'Year:O',
+            'Year:O',  # Use Ordinal ('O') for better label control
             title=None,
-            header=alt.Header(labelAngle=0, labelAlign='right', format='%B')
+            header=alt.Header(labelAngle=0, labelAlign='right', format='%Y')
         )
     ).properties(
         title='Mars Weather',
@@ -100,5 +101,7 @@ with tab3:
     ).configure_title(
         anchor='end'
     )
+    
+    # Assuming this is a Streamlit script
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
 
