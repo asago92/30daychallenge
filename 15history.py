@@ -61,9 +61,9 @@ with tab3:
     chart = alt.Chart(df, height=step).transform_timeunit(
         Month='month(terrestrial_date)'
     ).transform_joinaggregate(
-        mean_temp='mean(min_temp)', groupby=['Month']
+        mean_temp='mean(min_temp, max_temp)', groupby=['Month']
     ).transform_bin(
-        ['bin_max', 'bin_min'], 'min_temp'
+        ['bin_max', 'bin_min'], 'max_temp'
     ).transform_aggregate(
         value='count()', groupby=['Month', 'mean_temp', 'bin_min', 'bin_max']
     ).transform_impute(
