@@ -53,12 +53,12 @@ with tab3:
     #day16:weather 
     #divergingstackedbarchart, weatherheatmap, hexbins, ridgelineplot
     df = pd.read_csv('https://query.data.world/s/ke5v2uhxu6z7jjzmjfe4jrmrmhuy6e?dws=00000')
-    #df['terrestrial_date'] = pd.to_datetime(source['terrestrial_date'], format='%Y')
+    df['monthname'] = pd.to_datetime(df['terrestrial_date']).dt.month_name()
     step = 20
     overlap = 1
 
     chart = alt.Chart(df, height=step).transform_timeunit(
-        Month='terrestrial_date'
+        Month='monthname'
     ).transform_joinaggregate(
         mean_temp='mean(min_temp)', groupby=['Month']
     ).transform_bin(
