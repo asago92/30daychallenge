@@ -16,6 +16,7 @@ st.header("30 Days | 30 Charts | 5 Categories")
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["Comparisons", "Distributions", "Relationships", "Timeseries", "Uncertainties"])
 
 with tab1:
+    #treemaps plotly
     df = px.data.gapminder().query("year == 2007")
     fig = px.icicle(df, path=[px.Constant("world"), 'continent', 'country'], values='pop',
                       color='lifeExp', hover_data=['iso_alpha'],
@@ -28,6 +29,7 @@ with tab1:
     st.write("Something about this chart")
 
 with tab3:
+    #update with interactive legend
     source = pd.read_excel('MusicData.xlsx')
     source['Year'] = pd.to_datetime(source['Year'], format='%Y')
     
@@ -47,3 +49,55 @@ with tab3:
     
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
     st.markdown("---")
+
+    #day16:weather 
+    #divergingstackedbarchart, weatherheatmap, hexbins, ridgelineplot
+    df = pd.read_csv('https://query.data.world/s/ke5v2uhxu6z7jjzmjfe4jrmrmhuy6e?dws=00000')
+    step = 20
+    overlap = 1
+
+    chart = alt.Chart(df, height=step).transform_timeunit(
+        Month='month'
+    ).transform_joinaggregate(
+        mean_temp='mean(min_temp)', groupby=['Month']
+    ).transform_bin(
+        ['bin_max', 'bin_min'], 'min_temp'
+    ).transform_aggregate(
+        value='count()', groupby=['Month', 'mean_temp', 'bin_min', 'bin_max']
+    ).transform_impute(
+        impute='value', groupby=['Month', 'mean_temp'], key='bin_min', value=0
+    ).mark_area(
+        interpolate='monotone',
+        fillOpacity=0.8,
+        stroke='lightgray',
+        strokeWidth=0.5
+    ).encode(
+        alt.X('bin_min:Q', bin='binned', title='Minimum Daily Temperature (C)'),
+        alt.Y(
+            'value:Q',
+            scale=alt.Scale(range=[step, -step * overlap]),
+            axis=None
+        ),
+        alt.Fill(
+            'mean_temp:Q',
+            legend=None,
+            scale=alt.Scale(domain=[30, 5], scheme='redyellowblue')
+        )
+    ).facet(
+        row=alt.Row(
+            'Month:T',
+            title=None,
+            header=alt.Header(labelAngle=0, labelAlign='right', format='%B')
+        )
+    ).properties(
+        title='Mars Weather',
+        bounds='flush'
+    ).configure_facet(
+        spacing=0
+    ).configure_view(
+        stroke=None
+    ).configure_title(
+        anchor='end'
+    )
+    st.altair_chart(chart, theme="streamlit", use_container_width=True)
+
