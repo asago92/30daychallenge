@@ -124,6 +124,8 @@ with tab3:
             thickness=20,
             line=dict(color="black", width=0.5),
             label=labels,
+            x=[0.2, 0.1, 0.5, 0.7, 0.3, 0.5],
+            y=[0.7, 0.5, 0.2, 0.4, 0.2, 0.3],
             align="right"
         ),
         link=dict(
@@ -134,7 +136,7 @@ with tab3:
         )
     ))
     
-    fig.update_layout(title_text="Main Shinkansen Lines Passenger Flow", font_size=10)
+    fig.update_layout(title_text="Main Shinkansen Lines Passenger Flow", font_size=15)
     
     st.plotly_chart(fig, theme="streamlit")
 
