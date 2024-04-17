@@ -4,6 +4,7 @@ import pandas as pd
 import openpyxl
 import plotly.express as px
 import numpy as np
+import plotly.graph_objects as go
 
 st.set_page_config(
     page_title="vizchallenge",
@@ -108,4 +109,35 @@ with tab3:
     )
    
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
+    st.markdown("---")
+    #day17:connections 
+
+    labels = ['Tokyo', 'Shin-Osaka', 'Ōmiya', 'Takasaki', 'Hakata', 'Shin-Aomori', 'Niigata', 'Tsuruga', 'Kagoshima-Chūō', 'Shin-Hakodate-Hokuto']
+    sources = [0, 1, 0, 2, 3, 4, 5]
+    targets = [1, 4, 5, 6, 7, 8, 9]
+    values = [174171000, 76007000, 93489000, 44452000, 31670000, 14488000, 1601000]
+    
+    fig = go.Figure(go.Sankey(
+        arrangement="snap",
+        node=dict(
+            pad=15,
+            thickness=20,
+            line=dict(color="black", width=0.5),
+            label=labels
+        ),
+        link=dict(
+            source=sources,
+            target=targets,
+            value=values
+        )
+    ))
+    
+    fig.update_layout(title_text="Main Shinkansen Lines Passenger Flow", font_size=10)
+    
+    st.plotly_chart(fig, theme="streamlit")
+
+
+
+
+
     
