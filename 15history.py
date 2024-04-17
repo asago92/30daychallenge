@@ -127,7 +127,7 @@ with tab3:
             align="right"
         ),
         link=dict(
-            arrowlen=15
+            arrowlen=15,
             source=sources,
             target=targets,
             value=values
