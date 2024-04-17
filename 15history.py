@@ -120,7 +120,7 @@ with tab3:
     fig = go.Figure(go.Sankey(
         arrangement="snap",
         node=dict(
-            pad=15,
+            pad=30,
             thickness=20,
             line=dict(color="black", width=0.5),
             label=labels,
