@@ -123,9 +123,11 @@ with tab3:
             pad=15,
             thickness=20,
             line=dict(color="black", width=0.5),
-            label=labels
+            label=labels,
+            align="right"
         ),
         link=dict(
+            arrowlen=15
             source=sources,
             target=targets,
             value=values
