@@ -308,12 +308,11 @@ with tab3:
                               { 'name': 'Viet Nam',
                                 'value': 34.25},
                     'name': 'South '
-                            'East Asia'},
+                            'East Asia'}],
       'title': { 'text': 'ADB Climate Change Financing'
                          '(2023)'},
       'tooltip': { 'pointFormat': '<b>{point.name}:</b> '
-                                  '{point.value}m '
-                                  'CO<sub>2</sub>',
+                                  '{point.value}$ million ',
                    'useHTML': True}}
     
     
