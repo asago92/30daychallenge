@@ -253,12 +253,12 @@ with tab3:
                               { 'name': 'Tajikistan',
                                 'value': 41},
                               { 'name': 'Uzbekistan',
-                                'value': 1252.971},
+                                'value': 1252.971}],
                     'name': 'Central and West Asia'},
                   { 'data': [ { 'name': 'Mongolia',
                                 'value': 292.887},
                               { 'name': 'China',
-                                'value': 1472.433},
+                                'value': 1472.433}],
                     'name': 'East Asia'},
                   { 'data': [ { 'name': 'Micronesia',
                                 'value': 18},
@@ -288,7 +288,7 @@ with tab3:
                               { 'name': 'Nepal',
                                 'value': 554.5},
                               { 'name': 'Sri Lanka',
-                                'value': 616.58},
+                                'value': 616.58}],
                     'name': 'South '
                             'Asia'},
                   { 'data': [ { 'name': 'Cambodia',
@@ -306,7 +306,7 @@ with tab3:
                               { 'name': 'Thailand',
                                 'value': 36.986},
                               { 'name': 'Viet Nam',
-                                'value': 34.25},
+                                'value': 34.25}],
                     'name': 'South '
                             'East Asia'}],
       'title': { 'text': 'ADB Climate Change Financing'
