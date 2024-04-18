@@ -203,14 +203,14 @@ with tab3:
 
     #day18 Asian Development Bank
     #slopegraph
-    source = data.barley()
+    df1 = pd.read_excel('ADO_GDP.xlsx')
 
-    chart = alt.Chart(source).mark_line().encode(
-        x='year:O',
-        y='median(yield)',
-        color='site'
+    chart1 = alt.Chart(df1).mark_line().encode(
+        x='Year:O',
+        y='GDP Growth(%)',
+        color='Sub Region'
     )
-    st.altair_chart(chart, theme="streamlit", use_container_width=True)
+    st.altair_chart(chart1, theme="streamlit", use_container_width=True)
 
 
 
