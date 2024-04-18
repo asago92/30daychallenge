@@ -211,7 +211,7 @@ with tab3:
     st.write("In 2023, ADB committed $10,747 million in climate finance. This chart shows how the commited funds have been distributed across Asian Sub Regions.")
            
     #bubblechart
-    chartDef={ 'chart': { 'height': '100%',
+    chartDef={ 'chart': { 'height': '50%',
                  'type': 'packedbubble'},
       'plotOptions': { 'packedbubble': { 'dataLabels': { 'enabled': True,
                                                          'filter': { 'operator': '>',
