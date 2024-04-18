@@ -191,9 +191,9 @@ with tab3:
                             'wheel series',
                     'size': '95%',
                     'type': 'dependencywheel'}],
-      'title': { 'text': 'Highcharts '
-                         'Dependency '
-                         'Wheel'}}
+      'title': { 'text': 'BRICS '
+                         'Trade '
+                         'Turnover 2022'}}
     
     
     hg.streamlit_highcharts(chartDef,640)
