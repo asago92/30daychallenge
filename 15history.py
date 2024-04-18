@@ -5,6 +5,7 @@ import openpyxl
 import plotly.express as px
 import numpy as np
 import plotly.graph_objects as go
+import streamlit_highcharts as hg 
 
 st.set_page_config(
     page_title="vizchallenge",
@@ -110,37 +111,92 @@ with tab3:
    
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
     st.markdown("---")
-    #day17:connections 
+    #day17:connections             
 
-    labels = ['Tokyo', 'Shin-Osaka', 'Ōmiya', 'Takasaki', 'Hakata', 'Shin-Aomori', 'Niigata', 'Tsuruga', 'Kagoshima-Chūō', 'Shin-Hakodate-Hokuto']
-    sources = [0, 1, 0, 2, 3, 4, 5]
-    targets = [1, 4, 5, 6, 7, 8, 9]
-    values = [174171000, 76007000, 93489000, 44452000, 31670000, 14488000, 1601000]
+    chartDef={ 'accessibility': { 'point': { 'valueDescriptionFormat': '{index}. '
+                                                              'From '
+                                                              '{point.from} '
+                                                              'to '
+                                                              '{point.to}: '
+                                                              '{point.weight}.'}},
+      'series': [ { 'data': [ [ 'Brazil',
+                                'Russia',
+                                10.6],
+                              [ 'Brazil',
+                                'India',
+                                15.9],
+                              [ 'Brazil',
+                                'China',
+                                157.5],
+                              [ 'Brazil',
+                                'South Africa',
+                                2.7],
+                              [ 'Russia',
+                                'Brazil',
+                                10.6],
+                              [ 'Russia',
+                                'India',
+                                43.6],
+                              [ 'Russia',
+                                'China',
+                                190.3],
+                              [ 'Russia',
+                                'South Africa',
+                                0.8],
+                              [ 'India',
+                                'Brazil',
+                                15.9],
+                              [ 'India',
+                                'Russia',
+                                43.6],
+                              [ 'India',
+                                'China',
+                                117.43],
+                              [ 'India',
+                                'South Africa',
+                                19.4],
+                              [ 'China',
+                                'Brazil',
+                                157.5],
+                              [ 'China',
+                                'Russia',
+                                190.3],
+                              [ 'China',
+                                'India',
+                                117.3],
+                              [ 'China',
+                                'South Africa',
+                                56.7],
+                              [ 'South Africa',
+                                'Brazil',
+                                2.7],
+                              [ 'South Africa',
+                                'Russia',
+                                0.8],
+                              [ 'South Africa',
+                                'India',
+                                19.4],
+                              [ 'South Africa',
+                                'China',
+                                56.7]],
+                    'dataLabels': { 'color': '#333',
+                                    'distance': 10,
+                                    'style': { 'textOutline': 'none'},
+                                    'textPath': { 'attributes': { 'dy': 5},
+                                                  'enabled': True}},
+                    'keys': [ 'from',
+                              'to',
+                              'weight'],
+                    'name': 'Dependency '
+                            'wheel series',
+                    'size': '95%',
+                    'type': 'dependencywheel'}],
+      'title': { 'text': 'Highcharts '
+                         'Dependency '
+                         'Wheel'}}
     
-    fig = go.Figure(go.Sankey(
-        arrangement="snap",
-        node=dict(
-            pad=30,
-            thickness=20,
-            line=dict(color="black", width=0.5),
-            label=labels,
-            x=[0.2, 0.1, 0.5, 0.7, 0.3, 0.5],
-            y=[0.7, 0.5, 0.2, 0.4, 0.2, 0.3],
-            align="right"
-        ),
-        link=dict(
-            arrowlen=15,
-            source=sources,
-            target=targets,
-            value=values
-        )
-    ))
     
-    fig.update_layout(title_text="Main Shinkansen Lines Passenger Flow", font_size=15)
-    
-    st.plotly_chart(fig, theme="streamlit")
-
-
+    hg.streamlit_highcharts(chartDef,640)
 
 
 
