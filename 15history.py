@@ -201,6 +201,18 @@ with tab3:
     
     hg.streamlit_highcharts(chartDef,640)
 
+    #day18 Asian Development Bank
+    #slopegraph
+    source = data.barley()
+
+    chart = alt.Chart(source).mark_line().encode(
+        x='year:O',
+        y='median(yield)',
+        color='site'
+    )
+    st.altair_chart(chart, theme="streamlit", use_container_width=True)
+
+
 
 
     
