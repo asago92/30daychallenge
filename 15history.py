@@ -216,7 +216,7 @@ with tab3:
       'plotOptions': { 'packedbubble': { 'dataLabels': { 'enabled': True,
                                                          'filter': { 'operator': '>',
                                                                      'property': 'y',
-                                                                     'value': 250},
+                                                                     'value': 1000},
                                                          'format': '{point.name}',
                                                          'style': { 'color': 'black',
                                                                     'fontWeight': 'normal',
@@ -308,7 +308,7 @@ with tab3:
                    'useHTML': True}}
     
     
-    hg.streamlit_highcharts(chartDef,300)
+    hg.streamlit_highcharts(chartDef,640)
 
 
 
