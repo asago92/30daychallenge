@@ -111,7 +111,10 @@ with tab3:
    
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
     st.markdown("---")
-    #day17:connections             
+    #day17:connections 
+    #st.header("Day 17: Connections")
+    st.header("Gross trade flows within BRICS countries")
+    st.write("In the 2022 economic partnership between Brazil, Russia, India, China, and South Africa (BRICS), China took up the majority of overall trade.")
 
     chartDef={ 'accessibility': { 'point': { 'valueDescriptionFormat': '{index}. '
                                                               'From '
