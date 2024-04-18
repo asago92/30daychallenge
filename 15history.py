@@ -30,110 +30,6 @@ with tab1:
     st.subheader("Life Expectancy")
     st.write("Something about this chart")
 
-#st.header("Day 18: Asian Development Bank")
-    st.header("ADB's commitment to financing Climate Change ")
-    st.write("In 2023, ADB committed $10,747 million in climate finance. This chart shows how the commited funds have been distributed across Asian Sub Regions.")
-           
-    #bubblechart
-    chartDef={ 'chart': { 'height': '100%',
-                 'type': 'packedbubble'},
-      'plotOptions': { 'packedbubble': { 'dataLabels': { 'enabled': True,
-                                                         'filter': { 'operator': '>',
-                                                                     'property': 'y',
-                                                                     'value': 250},
-                                                         'format': '{point.name}',
-                                                         'style': { 'color': 'black',
-                                                                    'fontWeight': 'normal',
-                                                                    'textOutline': 'none'}},
-                                         'layoutAlgorithm': { 'dragBetweenSeries': True,
-                                                              'gravitationalConstant': 0.05,
-                                                              'parentNodeLimit': True,
-                                                              'seriesInteraction': False,
-                                                              'splitSeries': True},
-                                         'maxSize': '100%',
-                                         'minSize': '20%',
-                                         'zMax': 1000,
-                                         'zMin': 0}},
-      'series': [ { 'data': [ { 'name': 'Afghanistan',
-                                'value': 400},
-                              { 'name': 'Armenia',
-                                'value': 138.051},
-                              { 'name': 'Georgia',
-                                'value': 77.118},
-                              { 'name': 'Kazakhstan',
-                                'value': 219.933},
-                              { 'name': 'Kyrgyz Republic',
-                                'value': 80.3},
-                              { 'name': 'Pakistan',
-                                'value': 1618.674},
-                              { 'name': 'Tajikistan',
-                                'value': 41},
-                              { 'name': 'Uzbekistan',
-                                'value': 1252.971}],
-                    'name': 'Central and West Asia'},
-                  { 'data': [ { 'name': 'Mongolia',
-                                'value': 292.887},
-                              { 'name': 'China',
-                                'value': 1472.433}],
-                    'name': 'East Asia'},
-                  { 'data': [ { 'name': 'Micronesia',
-                                'value': 18},
-                             { 'name': 'Fiji',
-                                'value': 3},
-                             { 'name': 'Kiribati',
-                                'value': 40},
-                             { 'name': 'Papua New Guinea',
-                                'value': 63.6},
-                             { 'name': 'Samoa',
-                                'value': 10},
-                             { 'name': 'Solomon Islands',
-                                'value': 56.7},
-                              { 'name': 'Tonga',
-                                'value': 55.1},
-                              { 'name': 'Tonga',
-                                'value': 37.8}],
-                    'name': 'Pacific'},
-                  { 'data': [ { 'name': 'Bangladesh',
-                                'value': 4226.90},
-                              { 'name': 'Bhutan',
-                                'value': 32},
-                              { 'name': 'India',
-                                'value': 3108.97},
-                              { 'name': 'Maldives',
-                                'value': 119.2},
-                              { 'name': 'Nepal',
-                                'value': 554.5},
-                              { 'name': 'Sri Lanka',
-                                'value': 616.58}],
-                    'name': 'South '
-                            'Asia'},
-                  { 'data': [ { 'name': 'Cambodia',
-                                'value': 215},
-                              { 'name': 'Indonesia',
-                                'value': 2970.356},
-                              { 'name': 'Lao',
-                                'value': 365.035},
-                              { 'name': 'Malaysia',
-                                'value': 0.75},
-                              { 'name': 'Myanmar',
-                                'value': 29.218},
-                              { 'name': 'Philippines',
-                                'value': 5729.77},
-                              { 'name': 'Thailand',
-                                'value': 36.986},
-                              { 'name': 'Viet Nam',
-                                'value': 34.25}],
-                    'name': 'South '
-                            'East Asia'}],
-      'title': { 'text': 'ADB Climate Change Financing'
-                         '(2023)'},
-      'tooltip': { 'pointFormat': '<b>{point.name}:</b> '
-                                  '{point.value}$ million ',
-                   'useHTML': True}}
-    
-    
-    hg.streamlit_highcharts(chartDef,600)
-
 with tab3:
     #update with interactive legend
     source = pd.read_excel('MusicData.xlsx')
@@ -215,7 +111,9 @@ with tab3:
    
     st.altair_chart(chart, theme="streamlit", use_container_width=True)
     st.markdown("---")
-    #day17:connections 
+    
+    #day17:connections
+    
     st.header("Day 17: Connections")
     st.subheader("Gross trade flows within BRICS countries")
     st.write("In the 2022 economic partnership between Brazil, Russia, India, China, and South Africa (BRICS), China took up the majority of overall trade.")
@@ -410,7 +308,7 @@ with tab3:
                    'useHTML': True}}
     
     
-    hg.streamlit_highcharts(chartDef,600)
+    hg.streamlit_highcharts(chartDef,300)
 
 
 
