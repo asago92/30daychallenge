@@ -205,19 +205,9 @@ with tab3:
     
     #day18 Asian Development Bank
     #st.header("Day 18: Asian Development Bank")
-    st.header("GDP Growth in Asia Sub Regions")
-    #st.write("In the 2022 economic partnership between Brazil, Russia, India, China, and South Africa (BRICS), China took up the majority of overall trade.")
-    
-    #slopegraph
-    df1 = pd.read_excel('ADO_GDP.xlsx')
-
-    chart1 = alt.Chart(df1).mark_line().encode(
-        x='Year:O',
-        y='GDP Growth(%)',
-        color='Sub Region'
-    )
-    st.altair_chart(chart1, theme="streamlit", use_container_width=True)
-            
+    st.header("ADB's commitment to financing Climate Change ")
+    #st.write("In 2023, ADB committed $10,747 million in climate finance. This chart shows how the commited founds have been distributed across Asian Sub Regions.")
+           
     #bubblechart
     chartDef={ 'chart': { 'height': '100%',
                  'type': 'packedbubble'},
