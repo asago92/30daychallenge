@@ -301,7 +301,7 @@ with tab3:
                                 'value': 34.25}],
                     'name': 'South '
                             'East Asia'}],
-      'title': { 'text': 'ADB Climate Change Financing'
+      'title': { 'text': 'ADB Climate Change Financing '
                          '(2023)'},
       'tooltip': { 'pointFormat': '<b>{point.name}:</b> '
                                   '{point.value}$ million ',
