@@ -308,7 +308,7 @@ with tab3:
                    'useHTML': True}}
     
     
-    hg.streamlit_highcharts(chartDef,940)
+    hg.streamlit_highcharts(chartDef,1240)
 
 
 
