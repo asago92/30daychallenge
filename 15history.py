@@ -206,7 +206,7 @@ with tab3:
     #day18 Asian Development Bank
     #st.header("Day 18: Asian Development Bank")
     st.header("ADB's commitment to financing Climate Change ")
-    #st.write("In 2023, ADB committed $10,747 million in climate finance. This chart shows how the commited founds have been distributed across Asian Sub Regions.")
+    st.write("In 2023, ADB committed $10,747 million in climate finance. This chart shows how the commited founds have been distributed across Asian Sub Regions.")
            
     #bubblechart
     chartDef={ 'chart': { 'height': '100%',
@@ -306,7 +306,7 @@ with tab3:
                    'useHTML': True}}
     
     
-    hg.streamlit_highcharts(chartDef,640)
+    hg.streamlit_highcharts(chartDef,600)
 
 
 
