@@ -19,12 +19,12 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["Comparisons", "Distributions", "Relatio
 
 with tab1:
     #treemaps plotly
-    df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/96c0bd/sunburst-coffee-flavors-complete.csv')
+    df = pd.read_csv('simplified_coffee.csv')
 
     fig = go.Figure(go.Treemap(
-        ids = df.ids,
-        labels = df.labels,
-        parents = df.parents,
+        ids = df.roast,
+        labels = df.rating,
+        parents = df.origin,
         pathbar_textfont_size=15,
         root_color="lightgrey"
     ))
