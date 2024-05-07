@@ -25,7 +25,7 @@ with tab1:
     fig = go.Figure(go.Treemap(
         ids=df['id'],
         labels=df['name'],
-        parents=df['origin'],
+        parents=df['roast'],
         pathbar_textfont_size=15,
         root_color="lightgrey"
     ))
