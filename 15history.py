@@ -19,16 +19,20 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["Comparisons", "Distributions", "Relatio
 
 with tab1:
     #treemaps plotly
-    df = px.data.gapminder().query("year == 2007")
-    fig = px.icicle(df, path=[px.Constant("world"), 'continent', 'country'], values='pop',
-                      color='lifeExp', hover_data=['iso_alpha'],
-                      color_continuous_scale='RdBu',
-                      color_continuous_midpoint=np.average(df['lifeExp'], weights=df['pop']))
-    fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
-    st.plotly_chart(fig, theme=None)
-    st.header("Day 1: Part-to-Whole")
-    st.subheader("Life Expectancy")
-    st.write("Something about this chart")
+    df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/96c0bd/sunburst-coffee-flavors-complete.csv')
+
+    fig = go.Figure(go.Treemap(
+        ids = df.ids,
+        labels = df.labels,
+        parents = df.parents,
+        pathbar_textfont_size=15,
+        root_color="lightgrey"
+    ))
+    fig.update_layout(
+        uniformtext=dict(minsize=10, mode='hide'),
+        margin = dict(t=50, l=25, r=25, b=25)
+    )
+    st.plotly_chart(fig, theme="streamlit")
 
 with tab3:
     #update with interactive legend
