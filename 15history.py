@@ -22,8 +22,8 @@ with tab1:
     df = pd.read_csv('simplified_coffee.csv')
 
     fig = go.Figure(go.Treemap(
-        ids = df.roast,
-        labels = df.rating,
+        ids = df.name,
+        labels = df.name,
         parents = df.origin,
         pathbar_textfont_size=15,
         root_color="lightgrey"
